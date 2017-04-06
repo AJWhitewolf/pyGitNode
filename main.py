@@ -11,6 +11,10 @@ BUFFER_SIZE = 60
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.bind((TCP_IP, TCP_PORT))
 s.listen(1)
+proc = subprocess.Popen(["pgrep", "node"], stdout=subprocess.PIPE)
+if len(proc) < 1:
+    subprocess.Popen(["node", "/home/pi/Projects/nodehooks/bin/www"])
+
 
 while True:
     conn, addr = s.accept()
