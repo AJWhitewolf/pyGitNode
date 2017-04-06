@@ -29,7 +29,7 @@ while True:
             proc = subprocess.Popen(["pgrep", "node"], stdout=subprocess.PIPE)
             for pid in proc.stdout:
                 os.kill(int(pid), signal.SIGKILL)
-            g = git.cmd.Git('C:\\Users\\ADunigan\\WebstormProjects\\nodehooks')
+            g = git.cmd.Git('/home/pi/Projects/nodehooks')
             g.pull()
             subprocess.Popen(["node", "/home/pi/Projects/nodehooks/bin/www"])
 
